@@ -4,6 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'home',
+    loadComponent: () => import('./home/home.component').then(c => c.HomeComponent)
+  },
+  {
     matcher: startsWith('mfe'),
     component: WebComponentWrapper,
     data: {
