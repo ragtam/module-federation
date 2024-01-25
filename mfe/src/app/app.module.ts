@@ -1,15 +1,19 @@
 import {Injector, NgModule, DoBootstrap} from '@angular/core';
 import {createCustomElement} from "@angular/elements";
 import { BrowserModule } from '@angular/platform-browser';
+import {RouterOutlet} from "@angular/router";
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    RouterOutlet
   ],
   providers: [],
   bootstrap: []
