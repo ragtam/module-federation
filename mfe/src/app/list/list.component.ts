@@ -1,16 +1,17 @@
 import {NgForOf} from "@angular/common";
 import { Component } from '@angular/core';
-import packageJson from '../../../package.json'
+import {RouterLink, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   imports: [
-    NgForOf
+    NgForOf,
+    RouterOutlet,
+    RouterLink
   ],
   standalone: true
 })
 export class ListComponent {
-  public packages = Object.keys(packageJson.dependencies).map( (key) => ({ name: key, version: (packageJson.dependencies as any)[key] }) );
 }

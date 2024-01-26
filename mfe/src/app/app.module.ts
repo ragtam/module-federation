@@ -1,7 +1,7 @@
 import {Injector, NgModule, DoBootstrap} from '@angular/core';
 import {createCustomElement} from "@angular/elements";
 import { BrowserModule } from '@angular/platform-browser';
-import {RouterOutlet} from "@angular/router";
+import {RouterLink, RouterOutlet} from "@angular/router";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterOutlet
+    RouterOutlet,
+    RouterLink
   ],
   providers: [],
   bootstrap: []

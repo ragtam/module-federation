@@ -1,8 +1,8 @@
 <div class="mfe__host">
-  <button routerLink="/details">Details</button>
-  <button routerLink="/list">List</button>
+  <button [routerLink]="[{outlets: {'mfe-outlet': 'details'}}]">Details</button>
+  <button [routerLink]="[{outlets: {'mfe-outlet': 'list'}}]">List</button>
 
   <hr>
 
-  <router-outlet></router-outlet>
+  <router-outlet name="mfe-outlet"></router-outlet>
 </div>

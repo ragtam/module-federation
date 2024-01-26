@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes} from "@angular/router";
+import {Route, RouterModule, Routes} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
 
-const routes: Routes = [
-  { path: 'list', loadComponent: () => import('./list/list.component').then(m => m.ListComponent) },
-  { path: 'details', loadComponent: () => import('./details/details.component').then(m => m.DetailsComponent) }
+const routes: Route[] = [
+  { path: 'list', outlet: 'mfe-outlet', loadChildren: () => import('./list/list.routes').then(m => m.listRoutes) },
+  { path: 'details', loadComponent: () => import('./details/details.component').then(m => m.DetailsComponent), outlet: 'mfe-outlet' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterTestingModule.withRoutes(routes),],
+  exports: [RouterTestingModule]
 })
 export class AppRoutingModule { }
