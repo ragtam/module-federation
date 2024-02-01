@@ -1,7 +1,8 @@
-import {Injector, NgModule, DoBootstrap} from '@angular/core';
+import {Injector, NgModule, DoBootstrap, inject} from '@angular/core';
 import {createCustomElement} from "@angular/elements";
 import { BrowserModule } from '@angular/platform-browser';
-import {RouterOutlet} from "@angular/router";
+import { RouterOutlet} from "@angular/router";
+import {WcRouterLinkDirective} from "../wc-router-link";
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,17 +14,17 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterOutlet
+    RouterOutlet,
+    WcRouterLinkDirective
   ],
   providers: [],
   bootstrap: []
 })
 export class AppModule implements DoBootstrap {
-  constructor(private injector: Injector) {
-  }
+  #injector = inject(Injector);
 
   ngDoBootstrap() {
-    const ce = createCustomElement(AppComponent, {injector: this.injector});
+    const ce = createCustomElement(AppComponent, {injector: this.#injector});
     customElements.define('ng-element', ce);
   }
 

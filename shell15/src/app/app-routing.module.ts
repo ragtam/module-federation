@@ -1,6 +1,7 @@
 import {startsWith, WebComponentWrapper, WebComponentWrapperOptions} from "@angular-architects/module-federation-tools";
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {MaintenanceManagerWrapperComponent} from "./maintenance-manager/maintenance-manager-wrapper.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       type: 'module',
       elementName: 'ng-element'
     } as WebComponentWrapperOptions
+  },
+  {
+    matcher: startsWith('maintenance-manager'),
+    component: MaintenanceManagerWrapperComponent
   }
 ];
 
